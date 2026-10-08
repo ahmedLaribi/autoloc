@@ -1,5 +1,6 @@
 package tn.esprit.tic.ssa.autoloc.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import tn.esprit.tic.ssa.autoloc.entities.enums.ModePaiement;
@@ -13,6 +14,13 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Paiement {
+
+    @ManyToOne
+    @JoinColumn(name = "contrat_id")
+    @JsonIgnore
+    Contrat contrat;
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long idPaiement;

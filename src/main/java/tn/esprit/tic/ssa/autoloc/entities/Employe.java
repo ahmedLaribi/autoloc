@@ -15,6 +15,12 @@ import tn.esprit.tic.ssa.autoloc.entities.enums.Role;
 @AllArgsConstructor
 
 public class Employe {
+
+
+    @ManyToOne
+    @JoinColumn(name = "agence_id")
+    Agence agence;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long idEmploye;
